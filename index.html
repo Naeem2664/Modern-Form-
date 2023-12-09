@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="CSS/bootstrap.css"> -->
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Working Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" onsubmit="sendEmail(); reset();return false">
+        <h3>Get in Touch</h3>
+        <div class="input">
+          <input type="text" placeholder="Your name"/>
+        </div>
+        <div class="input">
+          <input type="text" placeholder="Your number" required/>
+        </div>
+        <div class="input">
+          <input id="email" type="email" placeholder="Your email" required/>
+        </div>
+        <div class="input">
+          <textarea name="" id=""  rows="5" placeholder="How can I help you"></textarea>
+        </div>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+    Host : "sandbox.smtp.mailtrap.io",
+    Username : "5e3cfd53887088",
+    Password : "e4542ea7562f39",
+    To : 'faltooswag1@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New contact form enquiry",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+
+        }
+    </script>
+  </body>
+</html>
